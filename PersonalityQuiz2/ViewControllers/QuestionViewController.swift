@@ -20,57 +20,62 @@ class QuestionViewController: UIViewController {
     @IBOutlet var multipleStackView: UIStackView!
     
     @IBOutlet var multipleLabel1: UILabel!
+    @IBOutlet var multiSwitch1: UISwitch!
     @IBOutlet var multipleLabel2: UILabel!
+    @IBOutlet var multiSwitch2: UISwitch!
     @IBOutlet var multipleLabel3: UILabel!
+    @IBOutlet var multiSwitch3: UISwitch!
     @IBOutlet var multipleLabel4: UILabel!
+    @IBOutlet var multiSwitch4: UISwitch!
     
     @IBOutlet var rangedStackView: UIStackView!
     @IBOutlet var rangedLabel1: UILabel!
     @IBOutlet var rangedLabel2: UILabel!
-        
+    
+    @IBOutlet var rangedSlider: UISlider!
     @IBOutlet var questionProgressView: UIProgressView!
     
     var questionIndex = 0
     var answersChosen: [Answer] = []
     var questions: [Question] = [
-      Question(
-        text: "Which food do you like the most?",
-        type: .single,
-        answers: [
-          Answer(text: "Steak", type: .dog),
-          Answer(text: "Fish", type: .cat),
-          Answer(text: "Carrots", type: .rabbit),
-          Answer(text: "Corn", type: .turtle)
-        ]
-      ),
-      
-      Question(
-        text: "Which activities do you enjoy?",
-        type: .multiple,
-        answers: [
-          Answer(text: "Swimming", type: .turtle),
-          Answer(text: "Sleeping", type: .cat),
-          Answer(text: "Cuddling", type: .rabbit),
-          Answer(text: "Eating", type: .dog)
-        ]
-      ),
-      
-      Question(
-        text: "How much do you enjoy car rides?",
-        type: .ranged,
-        answers: [
-          Answer(text: "I dislike them", type: .cat),
-          Answer(text: "I get a little nervous", type: .rabbit),
-          Answer(text: "I barely notice them", type: .turtle),
-          Answer(text: "I love them", type: .dog)
-        ]
-      )
+        Question(
+            text: "Which food do you like the most?",
+            type: .single,
+            answers: [
+                Answer(text: "Steak", type: .dog),
+                Answer(text: "Fish", type: .cat),
+                Answer(text: "Carrots", type: .rabbit),
+                Answer(text: "Corn", type: .turtle)
+            ]
+        ),
+        
+        Question(
+            text: "Which activities do you enjoy?",
+            type: .multiple,
+            answers: [
+                Answer(text: "Swimming", type: .turtle),
+                Answer(text: "Sleeping", type: .cat),
+                Answer(text: "Cuddling", type: .rabbit),
+                Answer(text: "Eating", type: .dog)
+            ]
+        ),
+        
+        Question(
+            text: "How much do you enjoy car rides?",
+            type: .ranged,
+            answers: [
+                Answer(text: "I dislike them", type: .cat),
+                Answer(text: "I get a little nervous", type: .rabbit),
+                Answer(text: "I barely notice them", type: .turtle),
+                Answer(text: "I love them", type: .dog)
+            ]
+        )
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -89,11 +94,37 @@ class QuestionViewController: UIViewController {
         default:
             break
         }
-        
         nextQuestion()
     }
     
     
+    @IBAction func multipleAnswerButtonPressed(_ sender: UIButton) {
+        let currentAnswers = questions[questionIndex].answers
+        
+        if multiSwitch1.isOn {
+            answersChosen.append(currentAnswers[0])
+        }
+        if multiSwitch2.isOn {
+            answersChosen.append(currentAnswers[1])
+        }
+        if multiSwitch3.isOn {
+            answersChosen.append(currentAnswers[2])
+        }
+        if multiSwitch4.isOn {
+            answersChosen.append(currentAnswers[3])
+        }
+        
+        nextQuestion()
+    }
+    
+    @IBAction func rangedAnswerButtonPressed() {
+        let currentAnswers = questions[questionIndex].answers
+        let index = Int(round(rangedSlider.value * Float(currentAnswers.count - 1)))
+        
+        answersChosen.append(currentAnswers[index])
+        
+        nextQuestion()
+    }
     
     func updateUI() {
         singleStackView.isHidden = true
@@ -125,9 +156,13 @@ class QuestionViewController: UIViewController {
         singleButton3.setTitle(answers[2].text, for: .normal)
         singleButton4.setTitle(answers[3].text, for: .normal)
     }
- 
+    
     func updateMultipleStack(using answers: [Answer]) {
         multipleStackView.isHidden = false
+        multiSwitch1.isOn = false
+        multiSwitch2.isOn = false
+        multiSwitch3.isOn = false
+        multiSwitch4.isOn = false
         multipleLabel1.text = answers[0].text
         multipleLabel2.text = answers[1].text
         multipleLabel3.text = answers[2].text
@@ -136,7 +171,23 @@ class QuestionViewController: UIViewController {
     
     func updateRangedStack(using answers: [Answer]) {
         rangedStackView.isHidden = false
+        rangedSlider.setValue(0.5, animated: false)
         rangedLabel1.text = answers.first?.text
         rangedLabel2.text = answers.last?.text
     }
+    
+    func nextQuestion() {
+        questionIndex += 1
+        
+        if questionIndex < questions.count {
+            updateUI()
+        } else {
+           performSegue(withIdentifier: "Results", sender: nil)
+        }
+    }
+    
+    @IBSegueAction func showResults(_ coder: NSCoder) -> ResultsViewController? {
+        return ResultsViewController(coder: coder, responses: answersChosen)
+    }
+    
 }

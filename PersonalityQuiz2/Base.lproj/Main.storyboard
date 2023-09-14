@@ -121,6 +121,9 @@
                                         <rect key="frame" x="0.0" y="128.33333333333331" width="353" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Submit Answer"/>
+                                        <connections>
+                                            <action selector="rangedAnswerButtonPressed" destination="04n-Fc-ubZ" eventType="touchUpInside" id="2wa-6S-cyn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -196,6 +199,9 @@
                                         <rect key="frame" x="0.0" y="204" width="353" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Submit Answer"/>
+                                        <connections>
+                                            <action selector="multipleAnswerButtonPressed:" destination="04n-Fc-ubZ" eventType="touchUpInside" id="sxc-ud-TKL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -259,6 +265,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="PWd-fV-w2n"/>
                     <connections>
+                        <outlet property="multiSwitch1" destination="17a-Km-E1s" id="jmT-Bz-nrR"/>
+                        <outlet property="multiSwitch2" destination="S2A-iS-otV" id="uqQ-4c-Ndi"/>
+                        <outlet property="multiSwitch3" destination="LY3-tj-MB6" id="SpO-AG-6GL"/>
+                        <outlet property="multiSwitch4" destination="SzU-tH-mHW" id="w6o-iV-VMI"/>
                         <outlet property="multipleLabel1" destination="pKq-Qe-uMv" id="ZtX-T8-bpu"/>
                         <outlet property="multipleLabel2" destination="Zok-f7-gC7" id="WFT-IG-gTZ"/>
                         <outlet property="multipleLabel3" destination="kKk-KJ-LpF" id="2JE-Xq-Inc"/>
@@ -268,13 +278,14 @@
                         <outlet property="questionProgressView" destination="d3L-N7-QZV" id="dZ3-Mw-snw"/>
                         <outlet property="rangedLabel1" destination="jJh-Fw-yxF" id="ArB-oP-or9"/>
                         <outlet property="rangedLabel2" destination="u81-S4-7HH" id="oym-PZ-AuH"/>
+                        <outlet property="rangedSlider" destination="CBR-Mr-bXo" id="w94-6g-ZHV"/>
                         <outlet property="rangedStackView" destination="UNW-Jr-TeS" id="xhO-N1-ITE"/>
                         <outlet property="singleButton1" destination="A7g-SU-d5G" id="ekM-QO-GQh"/>
                         <outlet property="singleButton2" destination="gMv-In-Ar2" id="L1S-F0-sLO"/>
                         <outlet property="singleButton3" destination="dwH-0w-ldJ" id="7Wo-Ex-TT7"/>
                         <outlet property="singleButton4" destination="oXx-yT-t9c" id="F5o-aW-jVx"/>
                         <outlet property="singleStackView" destination="3WG-21-D1n" id="pxj-rH-HLV"/>
-                        <segue destination="IBY-1e-Q29" kind="show" identifier="Results" id="612-kU-3O7"/>
+                        <segue destination="IBY-1e-Q29" kind="show" identifier="Results" destinationCreationSelector="showResults:" id="612-kU-3O7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yD-y1-JoX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -321,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ite-Tt-GvT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2059" y="13"/>
+            <point key="canvasLocation" x="2178" y="20"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ra9-5s-NiZ">
