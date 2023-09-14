@@ -193,7 +193,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mie-ck-nnM">
-                                        <rect key="frame" x="0.0" y="204" width="353" height="34.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="204" width="353" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Submit Answer"/>
                                     </button>
@@ -244,15 +244,24 @@
                             <constraint firstItem="UNW-Jr-TeS" firstAttribute="centerY" secondItem="LGw-VK-NzM" secondAttribute="centerY" id="rec-aZ-Gmg"/>
                             <constraint firstItem="slq-Pz-Eck" firstAttribute="top" secondItem="qce-bn-cNi" secondAttribute="top" constant="20" id="sbb-Gz-2lP"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="GQn-rn-cY8"/>
-                                <exclude reference="3WG-21-D1n"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="PWd-fV-w2n"/>
                     <connections>
+                        <outlet property="multipleLabel1" destination="pKq-Qe-uMv" id="ZtX-T8-bpu"/>
+                        <outlet property="multipleLabel2" destination="Zok-f7-gC7" id="WFT-IG-gTZ"/>
+                        <outlet property="multipleLabel3" destination="kKk-KJ-LpF" id="2JE-Xq-Inc"/>
+                        <outlet property="multipleLabel4" destination="9yy-1e-ttP" id="qVx-0N-XqB"/>
+                        <outlet property="multipleStackView" destination="GQn-rn-cY8" id="QRS-wC-pBv"/>
+                        <outlet property="questionLabel" destination="slq-Pz-Eck" id="iCh-Ow-Z6U"/>
+                        <outlet property="questionProgressView" destination="d3L-N7-QZV" id="dZ3-Mw-snw"/>
+                        <outlet property="rangedLabel1" destination="jJh-Fw-yxF" id="ArB-oP-or9"/>
+                        <outlet property="rangedLabel2" destination="u81-S4-7HH" id="oym-PZ-AuH"/>
+                        <outlet property="rangedStackView" destination="UNW-Jr-TeS" id="xhO-N1-ITE"/>
+                        <outlet property="singleButton1" destination="A7g-SU-d5G" id="ekM-QO-GQh"/>
+                        <outlet property="singleButton2" destination="gMv-In-Ar2" id="L1S-F0-sLO"/>
+                        <outlet property="singleButton3" destination="dwH-0w-ldJ" id="7Wo-Ex-TT7"/>
+                        <outlet property="singleButton4" destination="oXx-yT-t9c" id="F5o-aW-jVx"/>
+                        <outlet property="singleStackView" destination="3WG-21-D1n" id="pxj-rH-HLV"/>
                         <segue destination="IBY-1e-Q29" kind="show" identifier="Results" id="612-kU-3O7"/>
                     </connections>
                 </viewController>

@@ -15,6 +15,8 @@
 		AC6B08502AB23C200091EA96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6B084E2AB23C200091EA96 /* LaunchScreen.storyboard */; };
 		AC6B08582AB250E90091EA96 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B08572AB250E90091EA96 /* QuestionViewController.swift */; };
 		AC6B085A2AB251090091EA96 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B08592AB251090091EA96 /* ResultsViewController.swift */; };
+		AC6B085C2AB257E50091EA96 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B085B2AB257E50091EA96 /* Question.swift */; };
+		AC6B08602AB258A60091EA96 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B085F2AB258A60091EA96 /* Answer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		AC6B08512AB23C200091EA96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC6B08572AB250E90091EA96 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		AC6B08592AB251090091EA96 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		AC6B085B2AB257E50091EA96 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		AC6B085F2AB258A60091EA96 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,15 +66,33 @@
 			children = (
 				AC6B08432AB23C1F0091EA96 /* AppDelegate.swift */,
 				AC6B08452AB23C1F0091EA96 /* SceneDelegate.swift */,
-				AC6B08472AB23C1F0091EA96 /* IntroductionViewController.swift */,
 				AC6B08492AB23C1F0091EA96 /* Main.storyboard */,
-				AC6B08572AB250E90091EA96 /* QuestionViewController.swift */,
-				AC6B08592AB251090091EA96 /* ResultsViewController.swift */,
+				AC6B085E2AB258050091EA96 /* ViewControllers */,
+				AC6B085D2AB257FC0091EA96 /* Models */,
 				AC6B084C2AB23C200091EA96 /* Assets.xcassets */,
 				AC6B084E2AB23C200091EA96 /* LaunchScreen.storyboard */,
 				AC6B08512AB23C200091EA96 /* Info.plist */,
 			);
 			path = PersonalityQuiz2;
+			sourceTree = "<group>";
+		};
+		AC6B085D2AB257FC0091EA96 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC6B085B2AB257E50091EA96 /* Question.swift */,
+				AC6B085F2AB258A60091EA96 /* Answer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC6B085E2AB258050091EA96 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AC6B08472AB23C1F0091EA96 /* IntroductionViewController.swift */,
+				AC6B08572AB250E90091EA96 /* QuestionViewController.swift */,
+				AC6B08592AB251090091EA96 /* ResultsViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +169,8 @@
 				AC6B08482AB23C1F0091EA96 /* IntroductionViewController.swift in Sources */,
 				AC6B08442AB23C1F0091EA96 /* AppDelegate.swift in Sources */,
 				AC6B08582AB250E90091EA96 /* QuestionViewController.swift in Sources */,
+				AC6B08602AB258A60091EA96 /* Answer.swift in Sources */,
+				AC6B085C2AB257E50091EA96 /* Question.swift in Sources */,
 				AC6B085A2AB251090091EA96 /* ResultsViewController.swift in Sources */,
 				AC6B08462AB23C1F0091EA96 /* SceneDelegate.swift in Sources */,
 			);
